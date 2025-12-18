@@ -108,7 +108,7 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 		</section>
 		<!-- Handling for et Renere Hav Section -->
 		<!-- Handling for et Renere Hav -->
-		<section class="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={`background-image: url('${tangbillede}');`}>
+		<section class="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={`background-image: url('${tangbillede.src}');`}>
 
 			<!-- SVG filter for glass distortion -->
 			<!-- SVG filter for glass distortion til baggrundseffekt -->
@@ -124,7 +124,7 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 				<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 					{/* Venstre kort: beskrivelse af handling */}
 					<div class="relative overflow-visible rounded-uniform p-8 lg:p-10 text-primary bg-white/3 backdrop-blur-3xl backdrop-saturate-200 border-2 border-primary ring-1 ring-inset ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform bg-[url('${tangbillede}')] bg-cover bg-center bg-no-repeat bg-fixed opacity-40" style="filter: url(#glass-distort);"></div>
+						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform" style={`background-image: url('${tangbillede.src}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; opacity: 0.4; filter: url(#glass-distort);`}></div>
 						<div aria-hidden class="absolute inset-0 z-0 bg-white/1 backdrop-blur-xl"></div>
 						<div class="relative z-10">
 							<Heading htmlheading="h3" size="h3" stylingclasses="text-primary mb-4">Handling for et renere hav</Heading>
@@ -135,7 +135,7 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 					</div>
 					{/* Højre kort: call to action */}
 					<div class="relative overflow-visible rounded-uniform p-8 lg:p-10 text-primary bg-white/1 backdrop-blur-3xl backdrop-saturate-200 border-2 border-primary shadow-[0_8px_30px_rgba(0,0,0,0.12)] lg:mt-24">
-						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform bg-[url('${tangbillede}')] bg-cover bg-center bg-no-repeat bg-fixed opacity-40" style="filter: url(#glass-distort);"></div>
+						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform" style={`background-image: url('${tangbillede.src}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; opacity: 0.4; filter: url(#glass-distort);`}></div>
 						<div aria-hidden class="absolute inset-0 z-0 bg-white/4 backdrop-blur-xl"></div>
 						<div class="relative z-10">
 							<Heading htmlheading="h3" size="h3" stylingclasses="text-primary mb-4">Hjælp med at beskytte havet</Heading>
