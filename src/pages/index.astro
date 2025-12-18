@@ -103,7 +103,7 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 						<div class={`relative rounded-uniform p-4 lg:p-6 flex flex-col justify-center items-center text-center space-y-2 min-h-72 lg:min-h-80 pt-20 lg:pt-24 w-full lg:w-130 ${i%2===0 ? 'self-start' : 'self-end'} overflow-visible will-fade-in-up`}>
 							<img src={card.img} alt={card.alt} class="absolute inset-0 w-full h-full object-contain" />
 							<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mt-12">{card.title}</Heading>
-							<Text stylingclasses="text-primary font-body text-[0.9rem] lg:text-[1rem] mt-2 max-w-xs w-full mx-auto">{card.text}</Text>
+							<Text stylingclasses="text-primary font-body mt-2 max-w-xs w-full mx-auto">{card.text}</Text>
 						</div>
 					))}
 				</div>
@@ -131,9 +131,9 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 						<div aria-hidden class="absolute inset-0 z-0 bg-white/1 backdrop-blur-xl"></div>
 						<div class="relative z-10">
 							<Heading htmlheading="h3" size="h3" stylingclasses="text-primary mb-4">Handling for et renere hav</Heading>
-							<p class="font-body text-primary/90 mb-4">North Nature er en NGO, der arbejder for at kortlægge, fjerne og forebygge spøgelsesnet i danske farvande. Vi samarbejder med myndigheder, forskere og dykkere for at sikre en effektiv indsats samt politiske løsninger til at beskytte vores havmiljø.</p>
-							<p class="font-body text-primary/90 mb-4">Hvad vi gør:</p>
-							<p class="font-body text-primary/90">Vi registrerer og lokaliserer spøgelsesnet ved systematisk at indsamle data, så oprydningsindsatsen kan målrettes effektivt, og så der ikke hersker tvivl om problemets omfang. For os er det afgørende, at den empiri, vi arbejder med, er pålidelig og solid. Når vi fjerner nettene, beskytter vi havets dyreliv og reducerer plastforureningen, så også fremtidige generationer kan få glæde af et sundere havmiljø. Samtidig oplyser og inddrager vi samfundet gennem dokumentation og mediedækning, hvor vi sætter fokus på problematikken omkring spøgelsesnet og styrker en fælles følelse af ansvar. Endelig samarbejder vi tæt med myndighederne og har en aktiv dialog med Miljøstyrelsen for at bidrage til langsigtede løsninger, der både omfatter lovgivning og konkrete handlinger til gavn for havets dyreliv.</p>
+							<Text stylingclasses="font-body text-primary mb-4">North Nature er en NGO, der arbejder for at kortlægge, fjerne og forebygge spøgelsesnet i danske farvande. Vi samarbejder med myndigheder, forskere og dykkere for at sikre en effektiv indsats samt politiske løsninger til at beskytte vores havmiljø.</Text>
+							<Text stylingclasses="font-body text-primary mb-4">Hvad vi gør:</Text>
+							<Text stylingclasses="font-body text-primary">Vi registrerer og lokaliserer spøgelsesnet ved systematisk at indsamle data, så oprydningsindsatsen kan målrettes effektivt, og så der ikke hersker tvivl om problemets omfang. For os er det afgørende, at den empiri, vi arbejder med, er pålidelig og solid. Når vi fjerner nettene, beskytter vi havets dyreliv og reducerer plastforureningen, så også fremtidige generationer kan få glæde af et sundere havmiljø. Samtidig oplyser og inddrager vi samfundet gennem dokumentation og mediedækning, hvor vi sætter fokus på problematikken omkring spøgelsesnet og styrker en fælles følelse af ansvar. Endelig samarbejder vi tæt med myndighederne og har en aktiv dialog med Miljøstyrelsen for at bidrage til langsigtede løsninger, der både omfatter lovgivning og konkrete handlinger til gavn for havets dyreliv.</Text>
 						</div>
 					</div>
 					{/* Højre kort: call to action */}
@@ -142,7 +142,7 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 						<div aria-hidden class="absolute inset-0 z-0 bg-white/4 backdrop-blur-xl"></div>
 						<div class="relative z-10">
 							<Heading htmlheading="h3" size="h3" stylingclasses="text-primary mb-4">Hjælp med at beskytte havet</Heading>
-							<p class="font-body text-primary/90">Spøgelsesnet udgør en skjult trussel mod havets økosystem, men du kan gøre en forskel! Ved at registrere fund af efterladte fiskenet hjælper du os med at kortlægge omfanget af problemet, hvilket muliggør en hurtigere og mere målrettet oprydning. Sammen kan vi tage ansvar og skabe et sundere og renere havmiljø for alle.</p>
+							<Text stylingclasses="font-body text-primary">Spøgelsesnet udgør en skjult trussel mod havets økosystem, men du kan gøre en forskel! Ved at registrere fund af efterladte fiskenet hjælper du os med at kortlægge omfanget af problemet, hvilket muliggør en hurtigere og mere målrettet oprydning. Sammen kan vi tage ansvar og skabe et sundere og renere havmiljø for alle.</Text>
 							<div class="mt-6">
 								<a href="/stot-havet"><Button variant="primary">Støt Havet</Button></a>
 							</div>
