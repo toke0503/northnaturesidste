@@ -3,11 +3,15 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Heading from "../components/Heading.astro";
 import Button from "../components/Button.astro";
 import Text from "../components/Text.astro";
+import gradient from "../assets/images/gradient.webp";
+import tomand2 from "../assets/images/tomand2.webp";
+import orange from "../assets/images/orange.webp";
+import indviklet from "../assets/images/indviklet.webp";
 ---
 <MainLayout title="Om North Nature">
 	<main class="overflow-hidden">
 		<!-- Hvem er vi Section -->
-		<section class="relative min-h-screen bg-center bg-no-repeat flex items-center pt-24 pb-0" style="background-image: url('/src/assets/images/gradient.webp'); background-size: 140% 140%; background-position: center;">
+		<section class="relative min-h-screen bg-center bg-no-repeat flex items-center pt-24 pb-0" style={`background-image: url('${gradient.src}'); background-size: 140% 140%; background-position: center;`}>
 			<div class="absolute inset-0 bg-white/10"></div>
 
 			<div class="relative z-10 px-[8.333vw] pb-32 pt-6 w-full">
@@ -26,7 +30,7 @@ import Text from "../components/Text.astro";
 
 					<!-- Image -->
 					<div class="relative z-0 w-full max-w-6xl ml-auto -mt-16 lg:-mt-20">
-					<img src="/src/assets/images/tomand2.webp" alt="North Nature team" class="w-full h-70 lg:h-95 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+					<img src={tomand2.src} alt="North Nature team" class="w-full h-70 lg:h-95 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
 					<!-- To kolonner tekst, komprimeret med map -->
 					<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl ml-auto pt-4">
 						{[
@@ -120,7 +124,7 @@ import Text from "../components/Text.astro";
 
 				<!-- Image (ingen animation) -->
 				<div class="w-full max-w-105 lg:max-w-105 aspect-square bg-primary/10 rounded-uniform overflow-hidden">
-					<img src="/src/assets/images/orange.webp" alt="North Nature samarbejde" class="w-full h-full object-cover" />
+					<img src={orange.src} alt="North Nature samarbejde" class="w-full h-full object-cover" />
 				</div>
 
 				<!-- Right text -->
@@ -138,7 +142,7 @@ import Text from "../components/Text.astro";
 			</div>
 		</section>
 <!-- Parallax Image Section -->
-	<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style="background-image: url('/src/assets/images/indviklet.webp');">
+	<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style={`background-image: url('${indviklet.src}');`}>
 
 		<script is:inline>
 			if (typeof window !== 'undefined') {

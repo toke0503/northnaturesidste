@@ -3,6 +3,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
+import gradient from "../assets/images/gradient.webp";
+import tangpaastrand from "../assets/images/tangpaastrand.webp";
+import patgrafikmedbogstaver from "../assets/images/patgrafikmedbogstaver.webp";
+import fedejoe from "../assets/images/fedejoe.webp";
 ---
 
 <MainLayout title="Støt Havet - North Nature">
@@ -13,7 +17,7 @@ import Button from "../components/Button.astro";
 		{/**
 			Hero Section: Baggrund, overskrift, billede og introduktionstekst
 		*/}
-		<section class="relative bg-center bg-no-repeat pt-24 pb-0" style="background-image: url('/src/assets/images/gradient.webp'); background-size: 140% 140%; background-position: center;">
+		<section class="relative bg-center bg-no-repeat pt-24 pb-0" style={`background-image: url('${gradient.src}'); background-size: 140% 140%; background-position: center;`}>
 			<div class="absolute inset-0 bg-white/10"></div>
 			<div class="relative z-10 px-[8.333vw] pb-32 pt-6 w-full min-h-screen flex flex-col items-center justify-center">
 				<div class="max-w-7xl mx-auto space-y-8 lg:space-y-10 w-full will-fade-in-up">
@@ -24,7 +28,7 @@ import Button from "../components/Button.astro";
 						<Heading htmlheading="h1" size="h1" stylingclasses="text-primary leading-[0.85] whitespace-nowrap mb-0">STØT HAVET</Heading>
 					</div>
 					<div class="relative z-0 w-full max-w-6xl ml-auto -mt-16 lg:-mt-20">
-						<img src="/src/assets/images/tangpaastrand.webp" alt="Støt havet" class="w-full h-70 lg:h-95 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+						<img src={tangpaastrand.src} alt="Støt havet" class="w-full h-70 lg:h-95 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
 						<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl ml-auto pt-4">
 							<div class="font-body text-secondary text-[0.95rem] lg:text-[1rem] leading-relaxed will-fade-in-left">
 								<Text stylingclasses="">Spøgelsesnet dræber og forurener – det kan du/I være med til at stoppe. Hvert år efterlades eller tabes tusindvis af fiskenet i havet. Disse såkaldte spøgelsesnet bliver liggende som usynlige dødsfelder for alt liv i havet, hvor fisk og dyr ender deres liv i net, der fisker videre til ingen verdens nytte. Hos North Nature arbejder vi målrettet på at finde og fjerne spøgelsesnet fra de danske farvande. Det er et krævende og omkostningstugt arbejde.</Text>
@@ -214,7 +218,7 @@ import Button from "../components/Button.astro";
 					</div>
 					{/* Højre: Grafik */}
 					<div class="relative overflow-visible lg:-right-5 w-full lg:w-1/2">
-						<img src="/src/assets/images/patgrafikmedbogstaver.webp" alt="Sådan hjælper din donation" class="w-full h-auto object-cover" />
+						<img src={patgrafikmedbogstaver.src} alt="Sådan hjælper din donation" class="w-full h-auto object-cover" />
 					</div>
 				</div>
 			</div>
@@ -248,6 +252,6 @@ import Button from "../components/Button.astro";
 		{/**
 			Baggrundssektion med billede (visuelt break)
 		*/}
-		<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style="background-image: url('/src/assets/images/fedejoe.webp');"></section>
+		<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style={`background-image: url('${fedejoe.src}');`}></section>
 	</main>
 </MainLayout>
