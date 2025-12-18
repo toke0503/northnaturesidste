@@ -1,5 +1,4 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
@@ -7,6 +6,8 @@ import gradient from "../assets/images/gradient.webp";
 import tangpaastrand from "../assets/images/tangpaastrand.webp";
 import patgrafikmedbogstaver from "../assets/images/patgrafikmedbogstaver.webp";
 import fedejoe from "../assets/images/fedejoe.webp";
+import boelger from "../assets/images/boelger.svg";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Støt Havet - North Nature">
@@ -47,7 +48,7 @@ import fedejoe from "../assets/images/fedejoe.webp";
 				Wave transition mellem hero og donationsbokse
 			*/}
 			<div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; height: 80px; z-index: 1;">
-				<img src="/src/assets/images/boelger.svg" alt="bølge" style="width: 150vw; min-width: 100vw; max-width: 100vw; height: 100%; display: block; pointer-events: none; user-select: none; margin: 0; padding: 0;" />
+				   <img src={boelger.src} alt="bølge" style="width: 150vw; min-width: 100vw; max-width: 100vw; height: 100%; display: block; pointer-events: none; user-select: none; margin: 0; padding: 0;" />
 			</div>
 			<div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; height: 80px; z-index: 1; margin-bottom: 3rem;"></div>
 
