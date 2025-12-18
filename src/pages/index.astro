@@ -1,10 +1,17 @@
 ---
+
 import MainLayout from "../layouts/MainLayout.astro";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
-// Bruges til gradient baggrund i Om-sektion
-const gradientUrl = "/src/assets/images/gradient.webp";
+import gradientUrl from "../assets/images/gradient.webp";
+import herovideo from "../assets/images/herovideo.mp4";
+import donegron from "../assets/images/donegron.webp";
+import tangbillede from "../assets/images/tangbillede.webp";
+import tomand from "../assets/images/tomand.webp";
+import luftboejer from "../assets/images/luftboejer.webp";
+import gps from "../assets/images/gps.webp";
+import krabbebillede from "../assets/images/krabbebillede.webp";
 ---
 <MainLayout title="North Nature">
 	<main class="overflow-hidden">
@@ -12,10 +19,10 @@ const gradientUrl = "/src/assets/images/gradient.webp";
 		<!-- Hero med video og logo -->
 		<section class="relative h-screen flex items-end overflow-hidden pb-16">
 			<video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
-				<source src="/src/assets/images/herovideo.mp4" type="video/mp4" />
+				<source src={herovideo} type="video/mp4" />
 			</video>
 			<div class="flex items-center justify-center absolute inset-0 z-0">
-				<img src="/src/assets/images/donegron.webp" alt="North Nature" class="w-11/12 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 max-w-5xl h-auto" />
+				<img src={donegron} alt="North Nature" class="w-11/12 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 max-w-5xl h-auto" />
 			</div>
 			<div class="relative z-10 px-[8.333vw] w-full will-fade-in-up">
 				<div class="max-w-4xl">
@@ -101,7 +108,7 @@ const gradientUrl = "/src/assets/images/gradient.webp";
 		</section>
 		<!-- Handling for et Renere Hav Section -->
 		<!-- Handling for et Renere Hav -->
-		<section class="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('/src/assets/images/tangbillede.webp');">
+		<section class="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={`background-image: url('${tangbillede}');`}>
 
 			<!-- SVG filter for glass distortion -->
 			<!-- SVG filter for glass distortion til baggrundseffekt -->
@@ -117,7 +124,7 @@ const gradientUrl = "/src/assets/images/gradient.webp";
 				<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 					{/* Venstre kort: beskrivelse af handling */}
 					<div class="relative overflow-visible rounded-uniform p-8 lg:p-10 text-primary bg-white/3 backdrop-blur-3xl backdrop-saturate-200 border-2 border-primary ring-1 ring-inset ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform bg-[url('/src/assets/images/tangbillede.webp')] bg-cover bg-center bg-no-repeat bg-fixed opacity-40" style="filter: url(#glass-distort);"></div>
+						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform bg-[url('${tangbillede}')] bg-cover bg-center bg-no-repeat bg-fixed opacity-40" style="filter: url(#glass-distort);"></div>
 						<div aria-hidden class="absolute inset-0 z-0 bg-white/1 backdrop-blur-xl"></div>
 						<div class="relative z-10">
 							<Heading htmlheading="h3" size="h3" stylingclasses="text-primary mb-4">Handling for et renere hav</Heading>
@@ -128,7 +135,7 @@ const gradientUrl = "/src/assets/images/gradient.webp";
 					</div>
 					{/* Højre kort: call to action */}
 					<div class="relative overflow-visible rounded-uniform p-8 lg:p-10 text-primary bg-white/1 backdrop-blur-3xl backdrop-saturate-200 border-2 border-primary shadow-[0_8px_30px_rgba(0,0,0,0.12)] lg:mt-24">
-						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform bg-[url('/src/assets/images/tangbillede.webp')] bg-cover bg-center bg-no-repeat bg-fixed opacity-40" style="filter: url(#glass-distort);"></div>
+						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform bg-[url('${tangbillede}')] bg-cover bg-center bg-no-repeat bg-fixed opacity-40" style="filter: url(#glass-distort);"></div>
 						<div aria-hidden class="absolute inset-0 z-0 bg-white/4 backdrop-blur-xl"></div>
 						<div class="relative z-10">
 							<Heading htmlheading="h3" size="h3" stylingclasses="text-primary mb-4">Hjælp med at beskytte havet</Heading>
@@ -151,7 +158,7 @@ const gradientUrl = "/src/assets/images/gradient.webp";
 					<div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
 						<!-- Card 1 -->
 						<div>
-						<img src="/src/assets/images/tomand.webp" alt="Projekt Ghostnet Denmark" class="w-full h-70 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+						<img src={tomand} alt="Projekt Ghostnet Denmark" class="w-full h-70 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
 							<div class="mt-6">
 								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-2">Projekt Ghostnet Denmark</Heading>
 								<Text stylingclasses="font-body text-primary/80">Spøgelsesnet udgør en alvorlig trussel mod havmiljøet, hvor efterladte og mistede fiskenet fortsætter med at fange og dræbe marint dyreliv. North Nature har i seks år arbejdet på at kortlægge og fjerne disse net, særligt i Limfjorden, hvor organisationen har fjernet over 1.500 net. Med et bekræftet estimat på omkring 6.500 spøgelsesnet i området, er indsatsen mere relevant end nogensinde.</Text>
@@ -161,7 +168,7 @@ const gradientUrl = "/src/assets/images/gradient.webp";
 
 						<!-- Card 2 -->
 						<div>
-						<img src="/src/assets/images/luftboejer.webp" alt="Danish Ghostnet Recovery" class="w-full h-100 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+						<img src={luftboejer} alt="Danish Ghostnet Recovery" class="w-full h-100 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
 							<div class="mt-6">
 								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-2">Danish Ghostnet Recovery</Heading>
 								<Text stylingclasses="font-body text-primary/80">Vi har igennem PADI udarbejdet distinctive specialty course: Danish Ghostnet Recovery. Det er et dykkerkursus, der uddanner dykkere til at håndtere og bjærge spøgelsesnet, som er tabt fiskegear, der ligger i havet. Kurset giver viden om sikker bjærgning og fjernelse af net, samt forståelse for nettes miljøpåvirkning og påvirkning på dyrelivet.</Text>
@@ -171,7 +178,7 @@ const gradientUrl = "/src/assets/images/gradient.webp";
 
 						<!-- Card 3 -->
 						<div>
-						<img src="/src/assets/images/gps.webp" alt="Projekt Net-Op" class="w-full h-55 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+						<img src={gps} alt="Projekt Net-Op" class="w-full h-55 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
 							<div class="mt-6">
 								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-2">Projekt Net-Op</Heading>
 								<Text stylingclasses="font-body text-primary/80">Net-Op var North Natures første projekt, der fokuserede på systematisk kortlægning, fjernelse og dokumentation af spøgelsesnet i Limfjorden. Gennem innovative metoder og samarbejde med lokale aktører arbejder vi for at reducere problemet med spøgelsesnet og skabe mere sikre og ansvarlige havmiljøer. Projektet har bidraget til større viden om omfanget af problemet og støtter en mere bæredygtig havforvaltning.</Text>
@@ -189,7 +196,7 @@ const gradientUrl = "/src/assets/images/gradient.webp";
 
 		<!-- Parallax Image Section -->
 		<!-- Parallax billede -->
-		<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style="background-image: url('/src/assets/images/krabbebillede.webp');">
+		<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style={`background-image: url('${krabbebillede}');`}>
 			<div class="absolute inset-0 bg-black/5"></div>
 		</section>
 
