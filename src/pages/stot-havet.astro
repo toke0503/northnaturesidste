@@ -1,0 +1,253 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
+---
+
+<MainLayout title="Støt Havet - North Nature">
+	<style>
+		html { scroll-behavior: smooth; }
+	</style>
+	<main class="overflow-hidden">
+		{/**
+			Hero Section: Baggrund, overskrift, billede og introduktionstekst
+		*/}
+		<section class="relative bg-center bg-no-repeat pt-24 pb-0" style="background-image: url('/src/assets/images/gradient.webp'); background-size: 140% 140%; background-position: center;">
+			<div class="absolute inset-0 bg-white/10"></div>
+			<div class="relative z-10 px-[8.333vw] pb-32 pt-6 w-full min-h-screen flex flex-col items-center justify-center">
+				<div class="max-w-7xl mx-auto space-y-8 lg:space-y-10 w-full will-fade-in-up">
+					<Heading htmlheading="h4" size="h4" stylingclasses="text-secondary will-fade-in-left">
+						Med din hjælp kan vi redde liv og skabe et sundere havmiljø, uden mikroplast og bly
+					</Heading>
+					<div class="relative z-10 -mt-4 lg:-mt-6 will-fade-in-scale">
+						<Heading htmlheading="h1" size="h1" stylingclasses="text-primary leading-[0.85] whitespace-nowrap mb-0">STØT HAVET</Heading>
+					</div>
+					<div class="relative z-0 w-full max-w-6xl ml-auto -mt-16 lg:-mt-20">
+						<img src="/src/assets/images/tangpaastrand.webp" alt="Støt havet" class="w-full h-70 lg:h-95 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+						<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl ml-auto pt-4">
+							<div class="font-body text-secondary text-[0.95rem] lg:text-[1rem] leading-relaxed will-fade-in-left">
+								<Text stylingclasses="">Spøgelsesnet dræber og forurener – det kan du/I være med til at stoppe. Hvert år efterlades eller tabes tusindvis af fiskenet i havet. Disse såkaldte spøgelsesnet bliver liggende som usynlige dødsfelder for alt liv i havet, hvor fisk og dyr ender deres liv i net, der fisker videre til ingen verdens nytte. Hos North Nature arbejder vi målrettet på at finde og fjerne spøgelsesnet fra de danske farvande. Det er et krævende og omkostningstugt arbejde.</Text>
+							</div>
+							<div class="font-body text-secondary text-[0.95rem] lg:text-[1rem] leading-relaxed space-y-6 will-fade-in-right">
+								<Text stylingclasses="">Når du støtter North Nature, går hele beløbet ubeskåret til fjernelse af spøgelsesnet. Kanoer og SUP-brædder til eller efter 5.000 kr., er du med til at sikre, at vi kan fortsætte arbejdet og beskytte livet under overfladen.</Text>
+								<a href="#donation-flow">
+									<Button variant="secondary">STØT HAVET</Button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{/**
+				Wave transition mellem hero og donationsbokse
+			*/}
+			<div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; height: 80px; z-index: 1;">
+				<img src="/src/assets/images/boelger.svg" alt="bølge" style="width: 150vw; min-width: 100vw; max-width: 100vw; height: 100%; display: block; pointer-events: none; user-select: none; margin: 0; padding: 0;" />
+			</div>
+			<div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; height: 80px; z-index: 1; margin-bottom: 3rem;"></div>
+
+			<!-- Donation Options, alle bokse bruger rounded-uniform og markup er komprimeret -->
+			<div class="px-[8.333vw] pb-32 lg:pb-48 w-full">
+				<div class="max-w-7xl mx-auto will-fade-in-up">
+					<Heading htmlheading="h2" size="h2" stylingclasses="text-secondary-800 text-center mb-16 will-fade-in-scale">Hvordan du kan hjælpe os</Heading>
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 will-fade-in-up">
+						{[
+							{
+								title: 'DONATION',
+								subtitle: 'FRIVILLIGT BELØB',
+								text: 'En donation til North Nature er en engangsydelse, som gir drekte til fjernelse af spøgelsesnet fra de danske farvande.',
+								button: 'GÅ TIL DONATION',
+							},
+							{
+								title: 'MEDLEMSKAB',
+								subtitle: 'LØBENDE STØTTE',
+								text: 'Et støttemedlemskab er en fast månedlig donation, som gir dig mulighed for at være med til at beskytte livet i havet. Medlemskabet giver dig adgang til eksklusivt indhold og arrangementer.',
+								button: 'OPRET MEDLEMSKAB',
+							}
+						].map((box, i) => (
+							<div class="border-2 border-secondary-800 rounded-uniform p-6 flex flex-col will-fade-in-left">
+								  <div class="grow">
+									<Heading htmlheading="h4" size="h4" stylingclasses="text-secondary-800 text-center mb-1">{box.title}</Heading>
+									<Text stylingclasses="text-secondary-800 text-center text-sm mb-4">{box.subtitle}</Text>
+									<Text stylingclasses="text-secondary text-sm leading-relaxed mb-4">{box.text}</Text>
+								</div>
+								<div class="flex justify-center pt-4">
+									<Button variant="secondary">{box.button}</Button>
+								</div>
+							</div>
+						))}
+						<div class="border-2 border-secondary-800 rounded-uniform p-6 lg:col-span-2 flex flex-col max-w-4xl mx-auto lg:w-full will-fade-in-up">
+							<div class="grow">
+								<Heading htmlheading="h4" size="h4" stylingclasses="text-secondary-800 text-center mb-1">ERHVERVS DONATION</Heading>
+								<Text stylingclasses="text-secondary-800 text-center text-sm mb-1">ERHVERVS DONATION - DIPLOMER</Text>
+								<Text stylingclasses="text-secondary-800 text-center text-xs mb-4">fra 5.000 kr. ekskt. moms / år</Text>
+								<Text stylingclasses="text-secondary text-sm leading-relaxed mb-4">Som erhvervsspønsør hos North Nature støtter i fjernelsen af spøgelsesnet ved at hjælpe os med ressourcer, muligheder og vision. Som erhvervsspønsør får i et diploma, der dokumenterer jeres indsats og engagement.</Text>
+								<ul class="text-secondary text-[16px] lg:text-[18px] mb-4 space-y-1 list-disc list-inside font-body">
+									<li>Dokumentation for jeres miljøledelse</li>
+									<li>Officielt North Nature-diplom (digital og evt. fysisk)</li>
+									<li>Digitalt mærke til hjemmeside og CSR/ESG</li>
+									<li>Mulighed for synliighed på North Natures platforme</li>
+									<li>Mulighed for lokale diplomer ved opsætning i jeres område</li>
+								</ul>
+							</div>
+							<div class="flex justify-center pt-4">
+								<a href="#donation-flow">
+									<Button variant="secondary">ERHVERVSDONATION</Button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</section>
+
+		{/**
+			Donation + Process Section: Form og grafik, sticky på desktop
+		*/}
+		<section id="donation-flow" class="relative bg-background pt-16 lg:pt-24 pb-0 -scroll-mt-4 lg:-scroll-mt-8">
+			<div class="pl-[8.333vw] pr-0 w-full will-fade-in-up">
+				<Heading htmlheading="h2" size="h2" stylingclasses="text-secondary-800 mb-8 lg:mb-10 will-fade-in-scale">Hvad sker der under overfladen, når du støtter os?</Heading>
+				<div class="max-w-none mx-0 flex flex-col lg:flex-row gap-10 lg:gap-0 items-start will-fade-in-up">
+					{/* Venstre: Doner form */}
+					<div class="text-primary lg:pr-14 lg:sticky lg:top-20 lg:self-start w-full lg:w-1/2 px-4 sm:max-w-md sm:mx-auto lg:max-w-none lg:mx-0 will-fade-in-left">
+						<Heading htmlheading="h2" size="h3" stylingclasses="text-primary mb-4 text-center">DONATION</Heading>
+						<form class="space-y-4">
+							{/* Personoplysninger */}
+							<div>
+								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-2">Personoplysninger</Heading>
+								<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+									<div>
+										<label class="block font-body text-primary text-base mb-1">Navn*</label>
+										<input class="w-full rounded-uniform bg-white px-3 py-2 text-secondary placeholder:text-secondary/60 shadow-sm outline-none focus:ring-2 focus:ring-primary/60 font-body" placeholder="Indtast navn" />
+									</div>
+									<div>
+										<label class="block font-body text-primary text-base mb-1">Firmanavn</label>
+										<input class="w-full rounded-uniform bg-white px-3 py-2 text-secondary placeholder:text-secondary/60 shadow-sm outline-none focus:ring-2 focus:ring-primary/60 font-body" placeholder="Indtast firmanavn" />
+									</div>
+									<div>
+										<label class="block font-body text-primary text-base mb-1">E-mail*</label>
+										<input type="email" class="w-full rounded-uniform bg-white px-3 py-2 text-secondary placeholder:text-secondary/60 shadow-sm outline-none focus:ring-2 focus:ring-primary/60 font-body" placeholder="Indtast e-mail" />
+									</div>
+									<div>
+										<label class="block font-body text-primary text-base mb-1">Telefonnummer*</label>
+										<input class="w-full rounded-uniform bg-white px-4 py-3 text-secondary placeholder:text-secondary/60 shadow-sm outline-none focus:ring-2 focus:ring-primary/60 font-body" placeholder="Indtast telefonnummer" />
+									</div>
+								</div>
+							</div>
+							{/* Beløb */}
+							<div class="space-y-2 will-fade-in-up">
+								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary">Hvordan vil du donere?</Heading>
+								<div class="flex items-center gap-6 font-body text-primary">
+									<label class="inline-flex items-center gap-2"><input type="radio" name="freq" class="accent-primary" checked /> Engangsbeløb</label>
+									<label class="inline-flex items-center gap-2"><input type="radio" name="freq" class="accent-primary" /> Månedlig donation</label>
+								</div>
+								<div class="grid grid-cols-3 gap-3">
+									{[50,100,150,200,300,500].map(val => (
+										<button type="button" class="rounded-uniform bg-white px-3 py-2 font-body text-secondary shadow-sm hover:-translate-y-0.5 transition">{val} kr</button>
+									))}
+								</div>
+								<div class="relative">
+									<input class="w-full rounded-uniform bg-white pl-3 pr-12 py-2 text-secondary placeholder:text-secondary/60 shadow-sm outline-none focus:ring-2 focus:ring-primary/60 font-body" placeholder="Indtast valgfrit beløb" />
+									<span class="absolute inset-y-0 right-4 flex items-center font-body text-secondary">kr</span>
+								</div>
+							</div>
+							{/* Betalingsform */}
+							<div class="space-y-2 will-fade-in-up">
+								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary">Vælg betalingsform</Heading>
+								<div class="flex gap-4">
+									{/* Betalingskort option */}
+									<label class="flex-1 cursor-pointer">
+										<input type="radio" name="pay" class="peer sr-only" checked />
+										<div class="rounded-uniform bg-white p-3 border-2 border-transparent peer-checked:border-primary shadow-sm transition flex items-center justify-center h-16">
+											<div class="flex gap-2 items-center">
+												<img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="Mastercard" class="h-6" />
+												<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-6" />
+											</div>
+										</div>
+									</label>
+									{/* MobilePay option */}
+									<label class="flex-1 cursor-pointer">
+										<input type="radio" name="pay" class="peer sr-only" />
+										<div class="rounded-uniform bg-white p-3 border-2 border-transparent peer-checked:border-primary shadow-sm transition flex items-center justify-center h-16">
+											<svg class="h-8 w-32" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+												<rect width="200" height="80" fill="#5A78FF" rx="8"/>
+												<text x="100" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">MobilePay</text>
+											</svg>
+										</div>
+									</label>
+									{/* Apple Pay option */}
+									<label class="flex-1 cursor-pointer">
+										<input type="radio" name="pay" class="peer sr-only" />
+										<div class="rounded-uniform bg-white p-3 border-2 border-transparent peer-checked:border-primary shadow-sm transition flex items-center justify-center h-16">
+											<svg class="h-8 w-20" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+												<rect width="120" height="60" fill="#000000" rx="8"/>
+												<text x="60" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500" fill="white" text-anchor="middle">Apple Pay</text>
+											</svg>
+										</div>
+									</label>
+								</div>
+							</div>
+							{/* Diplom og accept */}
+							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 will-fade-in-up">
+								<div class="space-y-3 will-fade-in-left">
+									<Heading htmlheading="h4" size="h4" stylingclasses="text-primary">Diplom:</Heading>
+									<div class="space-y-2 font-body text-primary/90">
+										<label class="flex items-center gap-2"><input type="radio" name="diploma" class="accent-primary" /> Fysisk bevis</label>
+										<label class="flex items-center gap-2"><input type="radio" name="diploma" class="accent-primary" /> Digitalt bevis</label>
+										<label class="flex items-center gap-2"><input type="radio" name="diploma" class="accent-primary" checked /> Nej tak</label>
+									</div>
+								</div>
+								<div class="space-y-3 will-fade-in-right">
+									<Heading htmlheading="h4" size="h4" stylingclasses="text-primary">Acceptér betingelser</Heading>
+									<div class="space-y-3 font-body text-primary/90">
+										<label class="flex items-center gap-2"><input type="checkbox" class="accent-primary" /> Jeg accepterer handelsbetingelserne</label>
+										<label class="flex items-start gap-2"><input type="checkbox" class="accent-primary mt-1" /> <span>Jeg vil gerne modtage nyhedsbreve, så jeg kan følge med i North Nature's arbejde og se, hvad min støtte går til.</span></label>
+									</div>
+								</div>
+							</div>
+							<div class="pt-2 will-fade-in-scale">
+								<Button variant="primary">Betal</Button>
+							</div>
+						</form>
+					</div>
+					{/* Højre: Grafik */}
+					<div class="relative overflow-visible lg:-right-5 w-full lg:w-1/2">
+						<img src="/src/assets/images/patgrafikmedbogstaver.webp" alt="Sådan hjælper din donation" class="w-full h-auto object-cover" />
+					</div>
+				</div>
+			</div>
+		</section>
+				{/**
+					Script: Tilføjer fade-in animationer når elementer kommer i view vha. IntersectionObserver
+				*/}
+				<script is:inline>
+					if (typeof window !== 'undefined') {
+						const animationMap = [
+							['will-fade-in-up', 'animate-fade-in-up'],
+							['will-fade-in-left', 'animate-fade-in-left'],
+							['will-fade-in-right', 'animate-fade-in-right'],
+							['will-fade-in-scale', 'animate-fade-in-scale'],
+						];
+						animationMap.forEach(([willClass, animateClass]) => {
+							const observer = new window.IntersectionObserver((entries) => {
+								entries.forEach(entry => {
+									if (entry.isIntersecting) {
+										entry.target.classList.add(animateClass);
+										observer.unobserve(entry.target);
+									}
+								});
+							}, { threshold: 0.2 });
+							document.querySelectorAll('.' + willClass).forEach(el => {
+								observer.observe(el);
+							});
+						});
+					}
+				</script>
+		{/**
+			Baggrundssektion med billede (visuelt break)
+		*/}
+		<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style="background-image: url('/src/assets/images/fedejoe.webp');"></section>
+	</main>
+</MainLayout>

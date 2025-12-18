@@ -10,14 +10,71 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="https://use.typekit.net/whm8kdt.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
 		<title>{Astro.props.title}</title>
 		<script defer src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	</head>
 	<body class="">
+		<!-- Access Gate Overlay -->
+		<div id="access-gate" class="fixed inset-0 z-9999 bg-background flex items-center justify-center">
+			<div class="max-w-md w-full mx-auto px-6 py-8 rounded-uniform border-2 border-primary bg-secondary/10 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
+				<h2 class="font-serif text-primary text-2xl mb-4">Skoleprojekt – Adgangskode påkrævet</h2>
+				<p class="font-body text-primary/90 mb-6">Dette site er et skoleprojekt og ikke offentligt tilgængeligt. Indtast adgangskoden for at fortsætte.</p>
+				<label for="gate-input" class="font-body text-primary/80">Adgangskode</label>
+				<input id="gate-input" type="password" class="mt-2 w-full rounded-uniform border-2 border-primary bg-transparent px-4 py-2 text-primary outline-none" placeholder="Skriv koden her" />
+				<button id="gate-button" class="mt-4 w-full border-2 border-primary rounded-uniform px-6 py-2 text-primary uppercase tracking-wide hover:bg-primary hover:text-secondary transition">Få adgang</button>
+				<p id="gate-error" class="mt-3 font-body text-red-500 hidden">Forkert kode. Prøv igen.</p>
+			</div>
+		</div>
+
+		<script>
+			// Simple client-side gate; stores success in sessionStorage
+			(function() {
+				const KEY = 'nn_access_granted';
+				const CODE = 'tokeersej';
+				const overlay = document.getElementById('access-gate');
+				const input = document.getElementById('gate-input') as HTMLInputElement;
+				const btn = document.getElementById('gate-button');
+				const err = document.getElementById('gate-error');
+
+				function grant() {
+					sessionStorage.setItem(KEY, '1');
+					overlay.style.display = 'none';
+				}
+
+				function check() {
+					if (sessionStorage.getItem(KEY) === '1') {
+						overlay.style.display = 'none';
+					} else {
+						overlay.style.display = 'flex';
+					}
+				}
+
+				btn.addEventListener('click', function() {
+					if ((input.value || '').trim() === CODE) {
+						grant();
+					} else {
+						err.classList.remove('hidden');
+					}
+				});
+
+				input.addEventListener('keydown', function(e) {
+					if (e.key === 'Enter') {
+						btn.click();
+					}
+				});
+
+				document.addEventListener('DOMContentLoaded', check);
+			})();
+		</script>
 		
 		<Header></Header>
 		
-		<slot />
+		<slot/>
 
 		<Footer></Footer>
 			

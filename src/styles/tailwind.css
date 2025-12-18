@@ -1,50 +1,97 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@plugin '@tailwindcss/typography';
-@plugin '@tailwindcss/forms';
+/* @plugin '@tailwindcss/typography'; */
+/* @plugin '@tailwindcss/forms'; */
 @import "tailwindcss-animated";
 @import "tailwindcss-intersect";
 
-@font-face {
-  font-family: 'Honk';
-  src: url('/fonts/Honk-Regular-VariableFont_MORF,SHLN.ttf') format('truetype');
+@layer utilities {
+  .rounded-uniform {
+    border-radius: 10px;
+  }
+  @media (min-width: 1024px) {
+    .rounded-uniform {
+      border-radius: 20px;
+    }
+  }
 }
 
 @font-face {
-  font-family: 'Quicksand';
-  src: url('/fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+  font-family: "Honk";
+  src: url("/fonts/Honk-Regular-VariableFont_MORF,SHLN.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Domine';
-  src: url('/fonts/Domine-Regular.ttf') format('truetype');
+  font-family: "Quicksand";
+  src: url("/fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Domine";
+  src: url("/fonts/Domine-Regular.ttf") format("truetype");
 }
 
 @theme {
   /* Her tilføjes theme variable // tokens */
 
   /*Farver */
-  --color-primary-400: #00E4F5;
-  --color-primary-500: #006269;
-  --color-primary-600: #006D75;
-  --color-secondary-400: #F5E400;
-  --color-secondary-500: #F5A600;
-  --color-secondary-600: #F57A00;
+  --color-primary: #b5ed2c;
+  --color-secondary: #013640;
+  --color-secondary-800: #0e3b39;
+  --color-background: #052320;
 
   /*Typografi */
-  --font-display: 'Honk', monospace;
-  --font-sans: 'Quicksand', sans-serif;
-  --font-serif: 'Domine', serif;
+  --font-display: "Honk", monospace;
+  --font-sans: "Quicksand", sans-serif;
+  --font-serif: "Domine", serif;
+  --font-heading: "miller-display", serif;
+  --font-body: "Instrument Serif", serif;
 }
 
 @layer base {
-
 }
 
-@layer components{
-
+@layer components {
 }
 
-@layer utilities{
-  
+@layer utilities {
+  .animate-fade-in-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .will-fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .animate-fade-in-left {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .will-fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  .animate-fade-in-right {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .will-fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  .animate-fade-in-scale {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .will-fade-in-scale {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }

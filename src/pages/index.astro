@@ -1,15 +1,214 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Link from "../components/Link.astro";
-import { Image } from "astro:assets";
-import thumbsup from "../assets/images/thumbsup.png";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
+// Bruges til gradient baggrund i Om-sektion
+const gradientUrl = "/src/assets/images/gradient.webp";
 ---
-<MainLayout title="Titel">
-	<main class="container mx-auto p-4">
-		<Heading htmlheading="h1">Lav noget flot!</Heading>
-        <Text teksttype="brødtekst">Så bliver Anders glad:-)</Text>
+<MainLayout title="North Nature">
+	<main class="overflow-hidden">
+		<!-- Hero Section -->
+		<!-- Hero med video og logo -->
+		<section class="relative h-screen flex items-end overflow-hidden pb-16">
+			<video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+				<source src="/src/assets/images/herovideo.mp4" type="video/mp4" />
+			</video>
+			<div class="flex items-center justify-center absolute inset-0 z-0">
+				<img src="/src/assets/images/donegron.webp" alt="North Nature" class="w-11/12 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 max-w-5xl h-auto" />
+			</div>
+			<div class="relative z-10 px-[8.333vw] w-full will-fade-in-up">
+				<div class="max-w-4xl">
+					<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-8">
+						Sammen gør vi en forskel: North Nature arbejder for at beskytte havet ved at fjerne spøgelsesnet og forebygge forurening. Gennem forskning, handling og samarbejde bidrager vi til et sundere havmiljø for fremtiden.
+					</Heading>
+					<div class="flex gap-4">
+						<a href="/stot-havet"><Button variant="primary">Støt Havet</Button></a>
+						<Button variant="primary">Registrer Spøgelsesnet</Button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+
+
+		
+		<!-- Om NorthNature med gradient og wave -->
+		<section class="relative min-h-screen bg-center bg-no-repeat flex items-center" style={`background-image: url('${gradientUrl}'); background-size: 140% 140%;`}>
+			<div class="absolute inset-0 bg-white/10"></div>
+			<div class="relative z-10 px-[8.333vw] py-20 lg:py-32 w-full will-fade-in-up">
+				<div class="max-w-3xl ml-auto text-secondary space-y-10 lg:mr-[6vw]">
+					<Heading htmlheading="h2" size="h2" stylingclasses="text-secondary">Om NorthNature</Heading>
+					<div class="leading-relaxed">
+						<Text stylingclasses="my-6">North Nature er en nonprofit-organisation, der beskytter havmiljøet ved at fjerne de spøgelsesnet, som ligger skjult i danske farvande og udgør en massiv trussel mod havets dyreliv. Vores mission er klar: at stoppe de efterladte fiskenet gennem målrettet handling, solid forskning og politisk engagement, så problemet kan løses – ikke bare nu, men på lang sigt.</Text>
+						<Text stylingclasses="my-6">Arbejdet begyndte i Limfjorden, hvor mere end 6.700 net er blevet fjernet, og hvor vores egne 1.500 hævninger har skabt vigtig dokumentation af de skader, spøgelsesnet forårsager. Denne viden bruger vi aktivt i samarbejde med Miljøstyrelsen for at sikre politisk opbakning og en national strategi, der kan gøre en reel forskel for havmiljøet.</Text>
+						<Text stylingclasses="my-6">Gennem stærke partnerskaber med dykkere, forskere, myndigheder og virksomheder sætter vi konstant fokus på problemet – både under vandet og i offentligheden. Med undervandsoptagelser, mediedækning og aktiv inddragelse af samfundet viser vi, hvor presserende udfordringen er, og hvordan løsningerne ser ud. Vores mål er et sundt og bæredygtigt havmiljø uden skjulte farer.</Text>
+					</div>
+					<div>
+						<a href="/om-os/"><Button variant="secondary">Læs mere om North Nature</Button></a>
+					</div>
+				</div>
+			</div>
+			<!-- Wave Transition -->
+			<div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180">
+				<svg class="relative block w-full h-20 md:h-30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+					<path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-background"></path>
+				</svg>
+			</div>
+		</section>
+
+		<!-- Vores Mission Section -->
+		<!-- Mission cards, komprimeret med map for DRY -->
+		<section class="relative min-h-screen bg-background flex items-center justify-center py-20 lg:py-32">
+			<div class="relative z-10 w-full flex flex-col items-center will-fade-in-up">
+				<Heading htmlheading="h1" size="h1" stylingclasses="text-secondary-800 mb-16 lg:mb-24 whitespace-nowrap">VORES MISSION</Heading>
+				<div class="flex flex-col gap-0 lg:gap-1 w-full max-w-6xl px-4">
+					{[
+						{
+							img: "/card1.svg",
+							alt: "Fjerne spøgelsesnet",
+							title: "Fjerne spøgelsesnet for at beskytte marineliv og havmiljøet",
+							text: "Præcis kortlægning af spøgelsesnet sikrer effektiv fjernelse og beskytter havets økosystem."
+						},
+						{
+							img: "/card2.svg",
+							alt: "Registrere og lokalisere",
+							title: "Registrere og lokalisere spørgelsesnet",
+							text: "Præcis kortlægning af spøgelsesnet sikrer effektiv fjernelse og beskytter havets økosystem."
+						},
+						{
+							img: "/card3.svg",
+							alt: "Oplyse og involvere",
+							title: "Oplyse og involvere samfundet",
+							text: "Ved at oplyse og inddrage samfundet skaber vi bevidsthed om spøgelsesnet og inspirerer til handling for et renere hav."
+						},
+						{
+							img: "/card4.svg",
+							alt: "Samarbejde med relevante aktører",
+							title: "Samarbejde med relevante aktører",
+							text: "Gennem samarbejde med myndigheder, forskere og erhvervsliv sikrer vi en langsigtet løsning på problemet med spøgelsesnet."
+						}
+					].map((card, i) => (
+						<div class={`relative rounded-uniform p-4 lg:p-6 flex flex-col justify-center items-center text-center space-y-2 min-h-72 lg:min-h-80 pt-20 lg:pt-24 w-full lg:w-130 ${i%2===0 ? 'self-start' : 'self-end'} overflow-visible will-fade-in-up`}>
+							<img src={card.img} alt={card.alt} class="absolute inset-0 w-full h-full object-contain" />
+							<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mt-12">{card.title}</Heading>
+							<Text stylingclasses="text-primary font-body text-[0.9rem] lg:text-[1rem] mt-2 max-w-xs w-full mx-auto">{card.text}</Text>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+		<!-- Handling for et Renere Hav Section -->
+		<!-- Handling for et Renere Hav -->
+		<section class="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('/src/assets/images/tangbillede.webp');">
+
+			<!-- SVG filter for glass distortion -->
+			<!-- SVG filter for glass distortion til baggrundseffekt -->
+			<svg class="absolute w-0 h-0" aria-hidden="true" focusable="false">
+				<filter id="glass-distort" x="-20%" y="-20%" width="140%" height="140%">
+					<feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="3" result="noise"/>
+					<feGaussianBlur in="noise" stdDeviation="0.5" result="blurNoise"/>
+					<feDisplacementMap in="SourceGraphic" in2="blurNoise" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+				</filter>
+			</svg>
+
+			<div class="relative z-10 px-[8.333vw] py-20 lg:py-32 w-full">
+				<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+					{/* Venstre kort: beskrivelse af handling */}
+					<div class="relative overflow-visible rounded-uniform p-8 lg:p-10 text-primary bg-white/3 backdrop-blur-3xl backdrop-saturate-200 border-2 border-primary ring-1 ring-inset ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform bg-[url('/src/assets/images/tangbillede.webp')] bg-cover bg-center bg-no-repeat bg-fixed opacity-40" style="filter: url(#glass-distort);"></div>
+						<div aria-hidden class="absolute inset-0 z-0 bg-white/1 backdrop-blur-xl"></div>
+						<div class="relative z-10">
+							<Heading htmlheading="h3" size="h3" stylingclasses="text-primary mb-4">Handling for et renere hav</Heading>
+							<p class="font-body text-primary/90 mb-4">North Nature er en NGO, der arbejder for at kortlægge, fjerne og forebygge spøgelsesnet i danske farvande. Vi samarbejder med myndigheder, forskere og dykkere for at sikre en effektiv indsats samt politiske løsninger til at beskytte vores havmiljø.</p>
+							<p class="font-body text-primary/90 mb-4">Hvad vi gør:</p>
+							<p class="font-body text-primary/90">Vi registrerer og lokaliserer spøgelsesnet ved systematisk at indsamle data, så oprydningsindsatsen kan målrettes effektivt, og så der ikke hersker tvivl om problemets omfang. For os er det afgørende, at den empiri, vi arbejder med, er pålidelig og solid. Når vi fjerner nettene, beskytter vi havets dyreliv og reducerer plastforureningen, så også fremtidige generationer kan få glæde af et sundere havmiljø. Samtidig oplyser og inddrager vi samfundet gennem dokumentation og mediedækning, hvor vi sætter fokus på problematikken omkring spøgelsesnet og styrker en fælles følelse af ansvar. Endelig samarbejder vi tæt med myndighederne og har en aktiv dialog med Miljøstyrelsen for at bidrage til langsigtede løsninger, der både omfatter lovgivning og konkrete handlinger til gavn for havets dyreliv.</p>
+						</div>
+					</div>
+					{/* Højre kort: call to action */}
+					<div class="relative overflow-visible rounded-uniform p-8 lg:p-10 text-primary bg-white/1 backdrop-blur-3xl backdrop-saturate-200 border-2 border-primary shadow-[0_8px_30px_rgba(0,0,0,0.12)] lg:mt-24">
+						<div aria-hidden class="absolute inset-0 z-0 rounded-uniform bg-[url('/src/assets/images/tangbillede.webp')] bg-cover bg-center bg-no-repeat bg-fixed opacity-40" style="filter: url(#glass-distort);"></div>
+						<div aria-hidden class="absolute inset-0 z-0 bg-white/4 backdrop-blur-xl"></div>
+						<div class="relative z-10">
+							<Heading htmlheading="h3" size="h3" stylingclasses="text-primary mb-4">Hjælp med at beskytte havet</Heading>
+							<p class="font-body text-primary/90">Spøgelsesnet udgør en skjult trussel mod havets økosystem, men du kan gøre en forskel! Ved at registrere fund af efterladte fiskenet hjælper du os med at kortlægge omfanget af problemet, hvilket muliggør en hurtigere og mere målrettet oprydning. Sammen kan vi tage ansvar og skabe et sundere og renere havmiljø for alle.</p>
+							<div class="mt-6">
+								<a href="/stot-havet"><Button variant="primary">Støt Havet</Button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+<!-- Projekter Section -->
+		<!-- Projekter Section -->
+		<section class="relative bg-background py-20 lg:py-28">
+			<div class="px-[8.333vw] w-full">
+				<div class="max-w-6xl mx-auto will-fade-in-up">
+					<Heading htmlheading="h2" size="h2" stylingclasses="text-primary text-center mb-12 lg:mb-16">PROJEKTER</Heading>
+
+					<div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
+						<!-- Card 1 -->
+						<div>
+						<img src="/src/assets/images/tomand.webp" alt="Projekt Ghostnet Denmark" class="w-full h-70 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+							<div class="mt-6">
+								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-2">Projekt Ghostnet Denmark</Heading>
+								<Text stylingclasses="font-body text-primary/80">Spøgelsesnet udgør en alvorlig trussel mod havmiljøet, hvor efterladte og mistede fiskenet fortsætter med at fange og dræbe marint dyreliv. North Nature har i seks år arbejdet på at kortlægge og fjerne disse net, særligt i Limfjorden, hvor organisationen har fjernet over 1.500 net. Med et bekræftet estimat på omkring 6.500 spøgelsesnet i området, er indsatsen mere relevant end nogensinde.</Text>
+								<a href="#" class="inline-block mt-4 font-body text-primary/80 underline underline-offset-2 decoration-1 transition-all duration-200 hover:text-primary hover:underline-offset-4 hover:decoration-2">Projekt Ghostnet Denmark</a>
+							</div>
+						</div>
+
+						<!-- Card 2 -->
+						<div>
+						<img src="/src/assets/images/luftboejer.webp" alt="Danish Ghostnet Recovery" class="w-full h-100 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+							<div class="mt-6">
+								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-2">Danish Ghostnet Recovery</Heading>
+								<Text stylingclasses="font-body text-primary/80">Vi har igennem PADI udarbejdet distinctive specialty course: Danish Ghostnet Recovery. Det er et dykkerkursus, der uddanner dykkere til at håndtere og bjærge spøgelsesnet, som er tabt fiskegear, der ligger i havet. Kurset giver viden om sikker bjærgning og fjernelse af net, samt forståelse for nettes miljøpåvirkning og påvirkning på dyrelivet.</Text>
+								<a href="#" class="inline-block mt-4 font-body text-primary/80 underline underline-offset-2 decoration-1 transition-all duration-200 hover:text-primary hover:underline-offset-4 hover:decoration-2">Danish Ghostnet Recovery</a>
+							</div>
+						</div>
+
+						<!-- Card 3 -->
+						<div>
+						<img src="/src/assets/images/gps.webp" alt="Projekt Net-Op" class="w-full h-55 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+							<div class="mt-6">
+								<Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-2">Projekt Net-Op</Heading>
+								<Text stylingclasses="font-body text-primary/80">Net-Op var North Natures første projekt, der fokuserede på systematisk kortlægning, fjernelse og dokumentation af spøgelsesnet i Limfjorden. Gennem innovative metoder og samarbejde med lokale aktører arbejder vi for at reducere problemet med spøgelsesnet og skabe mere sikre og ansvarlige havmiljøer. Projektet har bidraget til større viden om omfanget af problemet og støtter en mere bæredygtig havforvaltning.</Text>
+								<a href="#" class="inline-block mt-4 font-body text-primary/80 underline underline-offset-2 decoration-1 transition-all duration-200 hover:text-primary hover:underline-offset-4 hover:decoration-2">Projekt Net-Op</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="mt-12 lg:mt-16 flex justify-center">
+						<Button variant="primary">STØT PROJEKTERNE</Button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Parallax Image Section -->
+		<!-- Parallax billede -->
+		<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style="background-image: url('/src/assets/images/krabbebillede.webp');">
+			<div class="absolute inset-0 bg-black/5"></div>
+		</section>
+
 	</main>
+	<!-- Fade-in animation observer, optimeret og kommenteret -->
+	<script is:inline>
+		// Tilføjer fade-in-up animation når elementer scroller ind
+		if (typeof window !== 'undefined') {
+			const observer = new window.IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('animate-fade-in-up');
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.2 });
+			document.querySelectorAll('.will-fade-in-up').forEach(el => {
+				observer.observe(el);
+			});
+		}
+	</script>
 </MainLayout>

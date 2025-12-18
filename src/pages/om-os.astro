@@ -1,0 +1,169 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Heading from "../components/Heading.astro";
+import Button from "../components/Button.astro";
+import Text from "../components/Text.astro";
+---
+<MainLayout title="Om North Nature">
+	<main class="overflow-hidden">
+		<!-- Hvem er vi Section -->
+		<section class="relative min-h-screen bg-center bg-no-repeat flex items-center pt-24 pb-0" style="background-image: url('/src/assets/images/gradient.webp'); background-size: 140% 140%; background-position: center;">
+			<div class="absolute inset-0 bg-white/10"></div>
+
+			<div class="relative z-10 px-[8.333vw] pb-32 pt-6 w-full">
+				<div class="max-w-7xl mx-auto">
+					<!-- Top text -->
+					<Heading htmlheading="h4" size="h4" stylingclasses="text-secondary max-w-7xl whitespace-normal z-30 mb-0 relative">
+						North Nature er en nonprofit, der beskytter havmiljøet ved at fjerne spøgelsesnet fra danske farvande
+					</Heading>
+					
+					<!-- Large heading -->
+					<div class="relative z-10 -mt-1">
+						<Heading htmlheading="h1" size="h1" stylingclasses="text-primary leading-[0.85] whitespace-nowrap mb-0">
+							HVEM ER VI?
+						</Heading>
+					</div>
+
+					<!-- Image -->
+					<div class="relative z-0 w-full max-w-6xl ml-auto -mt-16 lg:-mt-20">
+					<img src="/src/assets/images/tomand2.webp" alt="North Nature team" class="w-full h-70 lg:h-95 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+					<!-- To kolonner tekst, komprimeret med map -->
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl ml-auto pt-4">
+						{[
+							"Vi blev grundlagt med en mission om at bekæmpe de efterladte fiskenet, der udgør en alvorlig trussel mod havets dyreliv og økosystemer. Gennem en kombination af praktisk handling, forskning og politisk engagement arbejder vi for langsigtede løsninger på problemet.",
+							"Vores indsats tog sin begyndelse i Limfjorden, hvor over 6.700 spøgelsesnet er blevet fjernet. North Nature har selv fjernet 1.500 net og har opbygget solid dokumentation af deres skadelige effekt. Denne viden søg vi aktivt indsigt til Miljøstyrelsen, hvor vi arbejder for politisk opbakning og en national strategi mod spøgelsesnet."
+						].map(text => (
+							<div class="font-body text-secondary text-[0.95rem] lg:text-[1rem] leading-relaxed"><Text>{text}</Text></div>
+						))}
+					</div>
+
+					<!-- Statistik-bokse, komprimeret med map -->
+					<div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-5xl pt-16 mt-8" id="stats-section">
+						{[
+							{label: "NET FJERNET", value: 1500},
+							{label: "FRIVILIGE INVOLVERET", value: 120},
+							{label: "KM KYSTLINJE GENNEMGÅET", value: 80},
+							{label: "DYK UDFØRT", value: 300}
+						].map(stat => (
+							<div>
+								<Text stylingclasses="font-body text-secondary text-[0.75rem] lg:text-[0.85rem] uppercase tracking-wide mb-2">{stat.label}</Text>
+								<div class="h-0.5 w-full bg-primary mb-3"></div>
+								<div class="font-heading text-secondary text-[2.5rem] lg:text-[3.5rem] font-bold leading-none" data-target={stat.value}>0</div>
+							</div>
+						))}
+					</div>
+
+					<script>
+					// Flag for at sikre at animationen kun kører én gang
+					let hasAnimated = false;
+
+					// Funktion der animerer optælling fra 0 til target-værdi på et element
+					const animateCounter = (el) => {
+						const target = parseInt(el.getAttribute('data-target'));
+						const duration = 2000; // Animationens varighed i ms
+						const startTime = Date.now();
+						// Easing-funktion for blødere animation
+						const easeOutQuad = (t) => t * (2 - t);
+						// Opdaterer tallet løbende indtil target er nået
+						const update = () => {
+							const elapsed = Date.now() - startTime;
+							const progress = Math.min(elapsed / duration, 1);
+							const eased = easeOutQuad(progress);
+							const current = Math.floor(target * eased);
+							if (progress >= 1) {
+								el.textContent = target + '+'; // Slutværdi med plus
+							} else {
+								el.textContent = current;
+								requestAnimationFrame(update);
+							}
+						};
+						requestAnimationFrame(update);
+					};
+
+					// Sæt observer på hver statistik-boks, så animationen kun starter når de er synlige
+					document.querySelectorAll('[data-target]').forEach(counter => {
+						const observer = new IntersectionObserver((entries) => {
+							entries.forEach(entry => {
+								// Start kun animation hvis boksen er synlig og animationen ikke er startet før
+								if (entry.isIntersecting && !hasAnimated) {
+									hasAnimated = true;
+									document.querySelectorAll('[data-target]').forEach(animateCounter);
+								}
+							});
+						}, { threshold: 0.6 }); // 60% af boksen skal være synlig
+						observer.observe(counter);
+					});
+					</script>
+				</div>
+			</div>
+			
+			<!-- Wave Transition -->
+			<div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0 rotate-180 -mb-1">
+				<svg class="relative block w-full h-20 md:h-30 -mb-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+					<path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-background"></path>
+				</svg>
+			</div>
+		</section>
+
+		<!-- Samarbejde Section -->
+	<section class="relative bg-background pt-16 lg:pt-24 pb-32 lg:pb-48">
+			<div class="px-[8.333vw] w-full">				<Heading htmlheading="h1" size="h1" stylingclasses="text-secondary-800 mb-12 lg:mb-16 whitespace-nowrap">
+					SAMARBEJDE
+				</Heading>
+			<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 lg:gap-14 items-end will-fade-in-up">
+				<!-- Left card -->
+				<div class="border-2 border-primary rounded-uniform p-6 lg:p-8 text-primary bg-secondary/10 self-start will-fade-in-left">
+					<Heading htmlheading="h4" size="h4" stylingclasses="text-primary">
+						North Nature bygger på stærke partnerskaber med dykkere, forskere, myndigheder og virksomheder.
+					</Heading>
+				</div>
+
+				<!-- Image (ingen animation) -->
+				<div class="w-full max-w-105 lg:max-w-105 aspect-square bg-primary/10 rounded-uniform overflow-hidden">
+					<img src="/src/assets/images/orange.webp" alt="North Nature samarbejde" class="w-full h-full object-cover" />
+				</div>
+
+				<!-- Right text -->
+				<div class="text-primary font-body text-[0.95rem] lg:text-[1rem] leading-relaxed space-y-4 will-fade-in-right">
+					<Text>
+					North Nature bygger på stærke partnerskaber med dykkere, forskere, myndigheder og virksomheder. Vi tror på, at forandring kræver samarbejde, oplysning og handling. Gennem undervandsoptagelser, mediedækning og aktiv involvering af samfundet sætter vi fokus på problemet og inspirerer til løsninger. Vores mål er at skabe et sundt og bæredygtigt havmiljø – fri for skjulte farer.
+					</Text>
+					<Text>
+					Vores mål er at skabe et sundt og bæredygtigt havmiljø fri for skjulte farer.
+					</Text>
+					<div class="mt-6">
+						<a href="/stot-havet"><Button variant="primary">Støt Havet</Button></a>
+					</div>
+				</div>
+			</div>
+		</section>
+<!-- Parallax Image Section -->
+	<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style="background-image: url('/src/assets/images/indviklet.webp');">
+
+		<script is:inline>
+			if (typeof window !== 'undefined') {
+				const animationMap = [
+					['will-fade-in-up', 'animate-fade-in-up'],
+					['will-fade-in-left', 'animate-fade-in-left'],
+					['will-fade-in-right', 'animate-fade-in-right'],
+					['will-fade-in-scale', 'animate-fade-in-scale'],
+				];
+				animationMap.forEach(([willClass, animateClass]) => {
+					const observer = new window.IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add(animateClass);
+								observer.unobserve(entry.target);
+							}
+						});
+					}, { threshold: 0.2 });
+					document.querySelectorAll('.' + willClass).forEach(el => {
+						observer.observe(el);
+					});
+				});
+			}
+		</script>
+			</div>
+		</section>
+			
+		

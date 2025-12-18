@@ -1,0 +1,248 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
+---
+
+<style>
+	:global(html) {
+		scroll-behavior: smooth;
+	}
+
+	.hide-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+	
+	.hide-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	@keyframes bubble-float {
+		0%, 100% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-15px);
+		}
+	}
+
+	.bubble-1 {
+		animation: bubble-float 3s ease-in-out infinite;
+	}
+
+	.bubble-2 {
+		animation: bubble-float 3.5s ease-in-out infinite 0.2s;
+	}
+
+	.bubble-3 {
+		animation: bubble-float 3.2s ease-in-out infinite 0.4s;
+	}
+</style>
+<MainLayout title="Projekter - Ghostnet Denmark">
+	<main class="overflow-hidden">
+		<section class="relative bg-center bg-no-repeat pt-24 pb-0" style="background-image: url('/src/assets/images/gradient.webp'); background-size: 140% 140%; background-position: center;">
+			<div class="absolute inset-0 bg-white/10"></div>
+
+			<div class="relative z-10 px-[8.333vw] pb-32 pt-6 w-full min-h-screen flex items-center">
+				<div class="max-w-7xl mx-auto space-y-8 lg:space-y-10 w-full will-fade-in-up">
+					<!-- Large heading -->
+					<div class="relative z-10 will-fade-in-scale">
+						<Heading htmlheading="h1" size="h1" stylingclasses="text-primary uppercase leading-[0.85]">
+							PROJEKT <br> GHOSTNET <br> DENMARK
+						</Heading>
+					</div>
+
+					<!-- Image (ingen animation) -->
+					<div class="relative z-0 w-full max-w-6xl ml-auto -mt-16 lg:-mt-80">
+						<img src="/src/assets/images/dudum.webp" alt="Projekt Ghostnet Denmark" class="w-full h-70 lg:h-95 object-cover rounded-uniform shadow-[0_8px_30px_rgba(0,0,0,0.12)]" />
+					</div>
+
+					<!-- Text -->
+					<div class="max-w-6xl ml-auto grid grid-cols-1 lg:grid-cols-2 gap-8 -mt-10">
+						<Text stylingclasses="text-secondary text-[0.95rem] lg:text-[1rem] leading-relaxed my-0 will-fade-in-left">Spøgelsesnet udgør en alvorlig trussel mod havmiljøet, hvor efterladte og mistede fiskenet fortsætter med at fange og dræbe marine dyr i årevis. North Nature har i seks år arbejdet på at kortlægge og fjerne disse net, særligt i Limfjorden, hvor organisationen har fjernet over 1.500 net.</Text>
+						<Text stylingclasses="text-secondary text-[0.95rem] lg:text-[1rem] leading-relaxed my-0 will-fade-in-right">Med et bekræftet estimat på omkring 6.500 spøgelsesnet i området, er indsatsen mere relevant end nogensinde.</Text>
+					</div>
+				</div>
+			</div>
+
+			<!-- Wave transition -->
+			<div class="relative w-full mt-auto">
+				<svg class="relative block w-full h-20 md:h-30 -mb-1 transform scale-y-[-1]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+					<path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-background"></path>
+				</svg>
+			</div>
+		</section>
+
+		<!-- Initiatives section with vertical scroll -->
+		<section id="initiative-section" class="relative bg-background pt-16 lg:pt-24 pb-32 lg:pb-48">
+			<div class="px-[8.333vw] w-full">
+				<!-- Heading -->
+				<Heading htmlheading="h1" size="h1" stylingclasses="text-secondary-800 uppercase mb-16 will-fade-in-scale">
+					INITIATIVERNE
+				</Heading>
+
+				<!-- Container with image and scrollable boxes -->
+			<div class="flex flex-col lg:flex-row gap-12 items-start will-fade-in-up">
+				<!-- Image - sticky on left -->
+				<div class="w-full lg:w-1/2 h-[300px] lg:h-[500px]">
+					<img src="/src/assets/images/stilet.webp" alt="Initiative" class="w-full h-full rounded-uniform object-cover sticky top-20" />
+				</div>
+
+				<!-- Scrollbare initiativ-bokse, komprimeret med map for DRY og overskuelighed -->
+				<div id="initiative-scroll" class="w-full lg:w-1/2 h-auto lg:h-[500px] overflow-y-scroll rounded-uniform hide-scrollbar">
+					{[
+						{
+							nr: 1,
+							title: 'North Natures Indsats',
+							bullets: [
+								'Registrering og kortlægning af spøgelsesnet i danske farvande.',
+								'Fjernelse af net for at beskytte marine liv og reducere plastforurening.',
+								'Oplysningskampagner og foredrag for at øge bevidsthed om problemet.',
+								'Samarbejde med myndigheder for at sikre politiske og lovgivningsmæssige løsninger.'
+							],
+							extra: 'Vores indsats bygger på forskning, strategisk samarbejde og aktiv handling for at skabe et sundere havmiljø.'
+						},
+						{
+							nr: 2,
+							title: 'Danish Ghostnet Recovery - Uddannelse af Dykkere',
+							bullets: [
+								'Specialudviklet PADI Specialty-kursus.',
+								'Træning i sikker lokalisering og fjernelse af spøgelsesnet.',
+								'Fokus på minimal påvirkning af havmiljøet under oprydning.',
+								'National uddannelse for at engagere flere dykkere i kampen mod spøgelsesnet.'
+							],
+							
+						},
+						{
+							nr: 3,
+							title: 'Partnerskaber og politisk engagement',
+							bullets: [
+								'Samarbejde med fiskere, lystfiskere og Limfjordsrådet.',
+								'Deltagelse i Miljøstyrelsens arbejdsgrupper.',
+								'Udvikling af regulerninger og retningslinjer for bedre havoprydning.',
+								'Støtte til Verdensmål 14: Livet i havet.'
+							],
+							extra: 'Gennem vores partnerskaber arbejder vi for at sikre en struktureret og vedvarende indsats mod spøgelsesnet.'
+						}
+					].map((box, i) => (
+						<div class="px-6 py-4 bg-background rounded-uniform border-2 border-primary flex flex-col justify-center mb-6">
+							<Heading htmlheading="h1" size="h1" stylingclasses={`text-primary ${i === 0 ? 'lg:-mt-14 lg:-mb-6' : i === 1 ? 'lg:-mt-18 lg:-mb-12' : 'lg:-mt-14 lg:-mb-12'}`}>{box.nr}</Heading>
+							<Heading htmlheading="h4" size="h4" stylingclasses="text-primary uppercase font-bold mb-3">{box.title}</Heading>
+							<Text stylingclasses="text-primary text-sm leading-relaxed mb-2">
+								{box.bullets.map(bullet => (<><span>• {bullet}</span><br /></>))}
+							</Text>
+							<Text stylingclasses="text-primary text-sm mt-3">{box.extra}</Text>
+						</div>
+					))}
+				</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Diver CTA section -->
+		<section class="relative bg-background overflow-hidden pb-24 lg:pb-46">
+			<img src="/src/assets/images/boelger.svg" alt="bølge" class="absolute top-0 left-0 w-full lg:w-1/2 select-none pointer-events-none" />
+			<div class="px-[8.333vw] pt-20 lg:pt-24 flex flex-col lg:flex-row items-start lg:items-center gap-10 will-fade-in-up">
+				<div class="max-w-xl space-y-6 relative z-10 will-fade-in-left">
+					<Heading htmlheading="h2" size="h2" stylingclasses="text-secondary-800 leading-tight">Et skridt tættere på et renere havmiljø</Heading>
+					<Text stylingclasses="text-primary text-base leading-relaxed">
+						Hvis du støder på et spøgelsesnet, kan du hjælpe ved at registrere det via vores platform.
+						Dit bidrag er afgørende for vores kortlægning og oprydning. Sammen kan vi tage et skridt tættere på et renere og sundere havmiljø.
+					</Text>
+					<div class="pt-12 will-fade-in-scale">
+						<Button variant="primary">REGISTRER SPØGELSESNET</Button>
+					</div>
+				</div>
+
+<div class="relative w-full lg:flex-1 min-h-[400px] lg:min-h-[500px] mt-12 lg:mt-0">
+				<img src="/src/assets/images/dykker.svg" alt="Dykker" class="absolute right-0 bottom-0 max-w-[520px] w-[90%] lg:w-[520px] scale-x-[-1]" />
+				<img src="/src/assets/images/bobler.svg" alt="bobler" class="absolute right-[75%] lg:right-[60%] top-[28%] w-10 scale-x-[-1] bubble-1" />
+				<img src="/src/assets/images/bobler.svg" alt="bobler" class="absolute right-[85%] lg:right-[70%] top-[42%] w-8 scale-x-[-1] bubble-2" />
+				<img src="/src/assets/images/bobler.svg" alt="bobler" class="absolute right-[72%] lg:right-[55%] top-[50%] w-7 scale-x-[-1] bubble-3" />
+				</div>
+			
+		</section>
+		</div>
+				<section class="relative h-100 lg:h-125 bg-cover bg-fixed" style="background-image: url('/src/assets/images/bravosix.webp'); background-position: center;">
+						<div class="absolute inset-0 bg-black/5"></div>
+				</section>
+				<script is:inline>
+					if (typeof window !== 'undefined') {
+						const animationMap = [
+							['will-fade-in-up', 'animate-fade-in-up'],
+							['will-fade-in-left', 'animate-fade-in-left'],
+							['will-fade-in-right', 'animate-fade-in-right'],
+							['will-fade-in-scale', 'animate-fade-in-scale'],
+						];
+						animationMap.forEach(([willClass, animateClass]) => {
+							const observer = new window.IntersectionObserver((entries) => {
+								entries.forEach(entry => {
+									if (entry.isIntersecting) {
+										entry.target.classList.add(animateClass);
+										observer.unobserve(entry.target);
+									}
+								});
+							}, { threshold: 0.2 });
+							document.querySelectorAll('.' + willClass).forEach(el => {
+								observer.observe(el);
+							});
+						});
+					}
+				</script>
+	</main>
+</MainLayout>
+
+<script>
+// Snapper automatisk til initiativ-sektionen når den scroller ind, og håndterer scroll på kortene
+const section = document.getElementById("initiative-section");
+const scroller = document.getElementById("initiative-scroll");
+const heading = section?.querySelector("h1");
+let hasSnapped = false;
+let sectionLockedPosition = null;
+
+if (section && scroller && heading) {
+	// Snap til sektionen når den kommer ind i viewport
+	window.addEventListener("scroll", () => {
+		const sectionRect = section.getBoundingClientRect();
+		const headingTop = heading.getBoundingClientRect().top;
+		// Snap kun første gang sektionen vises
+		if (sectionRect.top < window.innerHeight && sectionRect.top > 0 && !hasSnapped) {
+			hasSnapped = true;
+			// Scroll så h1 er i toppen af viewport
+			const targetScroll = window.scrollY + headingTop;
+			window.scrollTo({ top: targetScroll, behavior: "smooth" });
+			sectionLockedPosition = targetScroll;
+		}
+		// Nulstil snap hvis sektionen forlades
+		if (sectionRect.top > window.innerHeight || sectionRect.bottom < 0) {
+			hasSnapped = false;
+			sectionLockedPosition = null;
+		}
+	});
+
+	// Håndter scroll på kortene, så man ikke scroller væk før top/bund
+	section.addEventListener("wheel", (event) => {
+		const headingRect = heading.getBoundingClientRect();
+		const isHeadingAtTop = headingRect.top <= 100;
+		if (!isHeadingAtTop) return;
+		const canScrollDown = scroller.scrollTop + scroller.clientHeight < scroller.scrollHeight - 10;
+		const canScrollUp = scroller.scrollTop > 0;
+		const atTopOfCards = scroller.scrollTop <= 0;
+		const atBottomOfCards = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 10;
+		// Tillad kun at scrolle væk hvis man er i top/bund
+		if ((event.deltaY > 0 && atBottomOfCards) || (event.deltaY < 0 && atTopOfCards)) {
+			return;
+		}
+		// Scroll gennem kortene
+		if ((event.deltaY > 0 && canScrollDown) || (event.deltaY < 0 && canScrollUp)) {
+			event.preventDefault();
+			scroller.scrollTop += event.deltaY;
+		} else {
+			// Bloker scroll væk hvis ikke i top/bund
+			event.preventDefault();
+		}
+	}, { passive: false });
+}
+</script>
