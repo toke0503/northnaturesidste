@@ -17,7 +17,7 @@ import Heading from "./Heading.astro";
             </a>
         </div>
         <div class="flex items-center gap-4">
-            <div :class="showmenu ? 'opacity-0 pointer-events-none' : 'opacity-100'" class="transition-none!">
+          <div :class="showmenu ? 'opacity-0 pointer-events-none transition-none' : 'opacity-100 transition-none'">
                 <a href="/stot-havet"><Button variant="primary">Støt Havet</Button></a>
             </div>
             <button id="burgermenu" x-on:click="showmenu = ! showmenu" class="flex flex-col gap-2.5 w-12 h-14 justify-center relative cursor-pointer">
@@ -127,12 +127,14 @@ import Heading from "./Heading.astro";
 <bobler class="absolute left-[95%] top-[-8px] w-3.5 h-3.5 object-contain opacity-75 bubble-3" alt="Boble" />
 
 <style>
+
     @keyframes bubble-float {
-        0%, 100% {
-            transform: translateY(0px);
-        }
-          transform: translateY(-15px);
-        }
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
     }
 
     .bubble-1 {
