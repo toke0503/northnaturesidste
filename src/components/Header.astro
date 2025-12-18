@@ -40,7 +40,7 @@ import Heading from "./Heading.astro";
         <!-- Menu indhold -->
         <!-- Mobilmenu: kun på mobil -->
 <div class="menu-content absolute inset-0 bg-center flex flex-col items-center justify-between py-10 px-8 sm:hidden"
-  style="background-image: url('/src/assets/images/gradient.webp'); background-size: 250% 250%; background-position: center;">
+  style={`background-image: url('${gradient.src}'); background-size: 250% 250%; background-position: center;`}>
   <div class="absolute inset-0 bg-black opacity-10 pointer-events-none"></div>
   <Heading htmlheading="h1" size="h1" stylingclasses="text-primary text-left mt-8 mb-12 text-5xl w-full pl-4">MENU</Heading>
   <ul class="flex flex-col items-end gap-8 text-right w-full px-4">
@@ -77,7 +77,7 @@ import Heading from "./Heading.astro";
 </div>
 <!-- Desktopmenu: kun på sm og op -->
 <div class="menu-content absolute inset-0 bg-center hidden sm:flex h-full relative z-0"
-  style="background-image: url('/src/assets/images/gradient.webp'); background-size: 250% 250%; background-position: center;">
+  style={`background-image: url('${gradient.src}'); background-size: 250% 250%; background-position: center;`}>
   <div class="absolute inset-0 bg-black opacity-10 pointer-events-none"></div>
 import logogron from "../assets/images/logogron.webp";
 import gradient from "../assets/images/gradient.webp";
