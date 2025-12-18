@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
+import monster from "../assets/images/monster.svg";
 import gradientUrl from "../assets/images/gradient.webp";
 import herovideo from "../assets/images/herovideo.mp4";
 import donegron from "../assets/images/donegron.webp";
@@ -31,7 +32,8 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 					</Heading>
 					<div class="flex gap-4">
 						<a href="/stot-havet"><Button variant="primary">Støt Havet</Button></a>
-						<Button variant="primary">Registrer Spøgelsesnet</Button>
+						<a href="https://experience.arcgis.com/experience/88b0aec63a8c42c4b27fad6e244b7608"><Button variant="primary">Registrer Spøgelsesnet</Button></a>
+						
 					</div>
 				</div>
 			</div>
@@ -44,6 +46,7 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 		<!-- Om NorthNature med gradient og wave -->
 		<section class="relative min-h-screen bg-center bg-no-repeat flex items-center" style={`background-image: url('${gradientUrl.src}'); background-size: 140% 140%;`}>
 			<div class="absolute inset-0 bg-white/10"></div>
+			<img src={monster.src} alt="Dekorativ grafik" class="absolute left-0 top-0 h-full max-h-[95%] w-auto z-0 pointer-events-none select-none hidden lg:block" style="min-width:340px;" />
 			<div class="relative z-10 px-[8.333vw] py-20 lg:py-32 w-full will-fade-in-up">
 				<div class="max-w-3xl ml-auto text-secondary space-y-10 lg:mr-[6vw]">
 					<Heading htmlheading="h2" size="h2" stylingclasses="text-secondary">Om NorthNature</Heading>

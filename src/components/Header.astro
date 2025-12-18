@@ -16,7 +16,7 @@ import Heading from "./Heading.astro";
     <div id="navbar" class="px-[8.333vw] flex flex-row justify-between items-center relative z-50">
         <div id="logo" :class="showmenu ? 'invisible' : 'visible'">
             <a href="/">
-                <img src={logogron.src} alt="North Nature" class="h-28" />
+              <img src={logogron.src} alt="North Nature" class="h-28 transition duration-200 hover:brightness-110 hover:scale-105 cursor-pointer" />
             </a>
         </div>
         <div class="flex items-center gap-4">
@@ -50,7 +50,7 @@ import Heading from "./Heading.astro";
     <li class="group w-full"><a href="/stot-havet" class="block transition-colors duration-150 hover:text-secondary text-4xl font-bold text-right" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150 text-right">STØT HAVET</Heading></a></li>
     <li class="group w-full"><a href="/om-os/" class="block transition-colors duration-150 hover:text-secondary text-4xl font-bold text-right" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150 text-right">OM OS</Heading></a></li>
     <li class="group w-full"><a href="/projekter/" class="block transition-colors duration-150 hover:text-secondary text-4xl font-bold text-right" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150 text-right">PROJEKTER</Heading></a></li>
-    <li class="group w-full"><a href="/kontakt/" class="block transition-colors duration-150 hover:text-secondary text-4xl font-bold text-right" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150 text-right">KONTAKT OS</Heading></a></li>
+    <li class="group w-full"><span class="block text-4xl font-bold text-right text-primary opacity-60 cursor-not-allowed select-none"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary transition-colors duration-150 text-right">KONTAKT OS</Heading></span></li>
   </ul>
   <div class="flex flex-col items-center justify-end w-full mt-12 mb-8 relative" style="min-height: 180px;">
     <div class="relative w-44 h-44 mb-2">
@@ -106,7 +106,7 @@ import Heading from "./Heading.astro";
         <li class="group"><a href="/stot-havet" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">STØT HAVET</Heading></a></li>
         <li class="group"><a href="/om-os/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">OM OS</Heading></a></li>
         <li class="group"><a href="/projekter/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">PROJEKTER</Heading></a></li>
-        <li class="group"><a href="/kontakt/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">KONTAKT OS</Heading></a></li>
+        <li class="group"><span class="block text-primary opacity-60 cursor-not-allowed select-none"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary transition-colors duration-150">KONTAKT OS</Heading></span></li>
       </ul>
       <div class="mt-auto text-right">
         <Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-4">FØLG OS PÅ <br> SOCIALE MEDIER</Heading>

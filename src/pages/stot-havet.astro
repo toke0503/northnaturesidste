@@ -109,7 +109,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 		</section>
 
 		{/**
-			Donation + Process Section: Form og grafik, sticky på desktop
+			Donation + Process Section: Form og grafik
 		*/}
 		<section id="donation-flow" class="relative bg-background pt-16 lg:pt-24 pb-0 -scroll-mt-4 lg:-scroll-mt-8">
 			<div class="pl-[8.333vw] pr-0 w-full will-fade-in-up">
@@ -243,7 +243,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 										observer.unobserve(entry.target);
 									}
 								});
-							}, { threshold: 0.2 });
+							}, { threshold: 0.05 });
 							document.querySelectorAll('.' + willClass).forEach(el => {
 								observer.observe(el);
 							});
