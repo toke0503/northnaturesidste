@@ -42,7 +42,7 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 
 		
 		<!-- Om NorthNature med gradient og wave -->
-		<section class="relative min-h-screen bg-center bg-no-repeat flex items-center" style={`background-image: url('${gradientUrl}'); background-size: 140% 140%;`}>
+		<section class="relative min-h-screen bg-center bg-no-repeat flex items-center" style={`background-image: url('${gradientUrl.src}'); background-size: 140% 140%;`}>
 			<div class="absolute inset-0 bg-white/10"></div>
 			<div class="relative z-10 px-[8.333vw] py-20 lg:py-32 w-full will-fade-in-up">
 				<div class="max-w-3xl ml-auto text-secondary space-y-10 lg:mr-[6vw]">
@@ -196,7 +196,7 @@ import krabbebillede from "../assets/images/krabbebillede.webp";
 
 		<!-- Parallax Image Section -->
 		<!-- Parallax billede -->
-		<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style={`background-image: url('${krabbebillede}');`}>
+		<section class="relative h-100 lg:h-125 bg-cover bg-center bg-fixed" style={`background-image: url('${krabbebillede.src}');`}>
 			<div class="absolute inset-0 bg-black/5"></div>
 		</section>
 
