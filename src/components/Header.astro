@@ -75,69 +75,63 @@ import Heading from "./Heading.astro";
     </div>
   </div>
 </div>
+
 <!-- Desktopmenu: kun på sm og op -->
 <div class="menu-content absolute inset-0 bg-center hidden sm:flex h-full relative z-0"
   style={`background-image: url('${gradient.src}'); background-size: 250% 250%; background-position: center;`}>
   <div class="absolute inset-0 bg-black opacity-10 pointer-events-none"></div>
-import logogron from "../assets/images/logogron.webp";
-import gradient from "../assets/images/gradient.webp";
-import dykker from "../assets/images/dykker.svg";
-import bobler from "../assets/images/bobler.svg";
-import fb from "../assets/images/fb.svg";
-    <!-- Venstre side med MENU og grøn boks -->
-    <div class="w-2/5 sm:w-1/2 px-[8.333vw] py-16 flex flex-col overflow-visible">
-      <Heading htmlheading="h1" size="h1" stylingclasses="text-primary mb-12">MENU</Heading>
-      <div class="flex-1 flex items-center justify-center relative overflow-visible">
-                <img src={logogron.src} alt="North Nature" class="h-28" />
-          <bobler class="w-full h-full object-contain" alt="Boble" />
-        </div>
-        <div class="absolute top-1/12 left-[70%] bubble-2 w-4 h-4 opacity-70">
-          <bobler class="w-full h-full object-contain" alt="Boble" />
-        </div>
-        <div class="absolute top-0 left-[78%] bubble-3 w-5 h-5 opacity-75">
-          <bobler class="w-full h-full object-contain" alt="Boble" />
-        </div>
-        <dykker class="w-[220%] sm:w-[140%] lg:w-1/2 h-auto max-h-full object-contain relative z-10 -translate-x-8 -rotate-90" alt="Dykker" />
+  <!-- Venstre side med MENU og grøn boks -->
+  <div class="w-2/5 sm:w-1/2 px-[8.333vw] py-16 flex flex-col overflow-visible">
+    <Heading htmlheading="h1" size="h1" stylingclasses="text-primary mb-12">MENU</Heading>
+    <div class="flex-1 flex items-center justify-center relative overflow-visible">
+      <img src={logogron.src} alt="North Nature" class="h-28" />
+      <bobler class="w-full h-full object-contain" alt="Boble" />
+    </div>
+    <div class="absolute top-1/12 left-[70%] bubble-2 w-4 h-4 opacity-70">
+      <bobler class="w-full h-full object-contain" alt="Boble" />
+    </div>
+    <div class="absolute top-0 left-[78%] bubble-3 w-5 h-5 opacity-75">
+      <bobler class="w-full h-full object-contain" alt="Boble" />
+    </div>
+    <dykker class="w-[220%] sm:w-[140%] lg:w-1/2 h-auto max-h-full object-contain relative z-10 -translate-x-8 -rotate-90" alt="Dykker" />
+  </div>
+  <!-- Højre side med links -->
+  <div class="w-3/5 sm:w-1/2 px-[8.333vw] py-16 flex flex-col justify-between">
+    <ul class="space-y-3 text-right mt-16">
+      <li class="group"><a href="/stot-havet" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">STØT HAVET</Heading></a></li>
+      <li class="group"><a href="/om-os/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">OM OS</Heading></a></li>
+      <li class="group"><a href="/projekter/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">PROJEKTER</Heading></a></li>
+      <li class="group"><a href="/kontakt/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">KONTAKT OS</Heading></a></li>
+    </ul>
+    <div class="mt-auto text-right">
+      <Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-4">FØLG OS PÅ <br> SOCIALE MEDIER</Heading>
+      <div class="flex gap-4 justify-end">
+        <a href="https://www.facebook.com/NorthNaturedk?locale=da_DK" target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-110">
+          <fb class="w-10 h-10 transition duration-200 hover:brightness-110" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/northnaturedk/" target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-110">
+          <img src={require('../assets/images/ig.svg').default ?? require('../assets/images/ig.svg')} alt="Instagram" class="w-10 h-10 transition duration-200 hover:brightness-110" />
+        </a>
+        <a href="https://www.youtube.com/channel/UCRnON5-mkcPwXEEfxZu8I-Q" target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-110">
+          <img src={require('../assets/images/yt.svg').default ?? require('../assets/images/yt.svg')} alt="YouTube" class="w-10 h-10 transition duration-200 hover:brightness-110" />
+        </a>
+        <a href="https://linkedin.com/company/north-nature?originalSubdomain=dk" target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-110">
+          <img src={require('../assets/images/linkedin.svg').default ?? require('../assets/images/linkedin.svg')} alt="LinkedIn" class="w-10 h-10 transition duration-200 hover:brightness-110" />
+        </a>
       </div>
     </div>
-    <!-- Højre side med links -->
-    <div class="w-3/5 sm:w-1/2 px-[8.333vw] py-16 flex flex-col justify-between">
-      <ul class="space-y-3 text-right mt-16">
-        <li class="group"><a href="/stot-havet" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">STØT HAVET</Heading></a></li>
-        <li class="group"><a href="/om-os/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">OM OS</Heading></a></li>
-        <li class="group"><a href="/projekter/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">PROJEKTER</Heading></a></li>
-        <li class="group"><a href="/kontakt/" class="block transition-colors duration-150 hover:text-secondary" x-on:click="showmenu = false"><Heading htmlheading="h2" size="h2" stylingclasses="text-primary group-hover:text-secondary transition-colors duration-150">KONTAKT OS</Heading></a></li>
-      </ul>
-      <div class="mt-auto text-right">
-        <Heading htmlheading="h4" size="h4" stylingclasses="text-primary mb-4">FØLG OS PÅ <br> SOCIALE MEDIER</Heading>
-        <div class="flex gap-4 justify-end">
-          <a href="https://www.facebook.com/NorthNaturedk?locale=da_DK" target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-110">
-            <img src="/src/assets/images/fb.svg" alt="Facebook" class="w-10 h-10 transition duration-200 hover:brightness-110" />
-          </a>
-          <a href="https://www.instagram.com/northnaturedk/" target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-110">
-            <img src="/src/assets/images/ig.svg" alt="Instagram" class="w-10 h-10 transition duration-200 hover:brightness-110" />
-          </a>
-          <a href="https://www.youtube.com/channel/UCRnON5-mkcPwXEEfxZu8I-Q" target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-110">
-            <img src="/src/assets/images/yt.svg" alt="YouTube" class="w-10 h-10 transition duration-200 hover:brightness-110" />
-          </a>
-          <a href="https://linkedin.com/company/north-nature?originalSubdomain=dk" target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-110">
-            <img src="/src/assets/images/linkedin.svg" alt="LinkedIn" class="w-10 h-10 transition duration-200 hover:brightness-110" />
-          </a>
-        </div>
-      </div>
-    </div>
-      <dykker class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 object-contain -rotate-90" alt="Dykker" />
+  </div>
+  <dykker class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 object-contain -rotate-90" alt="Dykker" />
 </div>
-      <bobler class="absolute left-[85%] top-[-18px] w-3 h-3 object-contain opacity-70 bubble-2" alt="Boble" />
-      <bobler class="absolute left-[95%] top-[-8px] w-3.5 h-3.5 object-contain opacity-75 bubble-3" alt="Boble" />
+<bobler class="absolute left-[85%] top-[-18px] w-3 h-3 object-contain opacity-70 bubble-2" alt="Boble" />
+<bobler class="absolute left-[95%] top-[-8px] w-3.5 h-3.5 object-contain opacity-75 bubble-3" alt="Boble" />
 
 <style>
     @keyframes bubble-float {
         0%, 100% {
             transform: translateY(0px);
         }
-        <img src={fb} alt="Facebook" class="w-10 h-10 transition duration-200 hover:brightness-110" />
-            transform: translateY(-15px);
+          transform: translateY(-15px);
         }
     }
 
